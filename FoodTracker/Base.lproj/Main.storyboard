@@ -45,9 +45,12 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="contentView" destination="VCX-Wx-dAV" id="SZf-8k-pCa"/>
+                                    <outlet property="contentview" destination="VCX-Wx-dAV" id="YOe-Fu-wII"/>
                                     <outlet property="nameLable" destination="Sgu-Ah-ewf" id="LV6-yh-eh3"/>
                                     <outlet property="photoImageView" destination="qQ2-Sa-ZLr" id="1Hc-Lo-eRu"/>
                                     <outlet property="ratingControl" destination="zEh-kR-Sy1" id="pTF-My-jFk"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="DPE-w5-ZDa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -80,13 +83,13 @@
                                 <rect key="frame" x="16" y="84" width="343" height="499"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FGn-ir-pbK">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="53"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="119"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="FFo-X5-hdV">
-                                        <rect key="frame" x="11.5" y="61" width="320" height="320"/>
+                                        <rect key="frame" x="11.5" y="127" width="320" height="320"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="FFo-X5-hdV" secondAttribute="height" multiplier="1:1" id="liA-bn-tIE"/>
@@ -96,10 +99,10 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="11P-wD-Z4H">
-                                        <rect key="frame" x="71.5" y="389" width="200" height="110"/>
+                                        <rect key="frame" x="45.5" y="455" width="252" height="44"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yuf-Dc-Era" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="252" height="44"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                                         <integer key="value" value="5"/>
@@ -127,7 +130,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="unn-k4-DHf">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="v90-xD-iLe"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="v90-xD-iLe">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="ZFk-sA-gPY"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="mnz-bj-0le">
                             <connections>
                                 <segue destination="z0i-YB-OXc" kind="unwind" unwindAction="unwindToMealListWithSender:" id="EMQ-Sf-NZQ"/>
@@ -185,10 +192,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idp-OJ-Fkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="82" y="133"/>
+            <point key="canvasLocation" x="-161" y="512"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="320" height="320"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="DPE-w5-ZDa"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -13,6 +13,8 @@ class MealTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLable: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var contentview: UIView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +25,16 @@ class MealTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if editingStyle == UITableViewCellEditingStyle.delete{
+            var rect = contentview.frame
+            rect.origin.x = self.showingDeleteConfirmation ? -15 : 38
+            contentview.frame = rect
+        }
     }
 
 }
